@@ -118,14 +118,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-
-function jitsi-restart {
-    systemctl restart prosody
-    systemctl restart jicofo
-    systemctl restart jitsi-videobridge2
-}
-
-
 alias sz='source ~/.bashrc'
 alias ta='if tmux attach-session -t 0;then;else tmux;fi'
 
