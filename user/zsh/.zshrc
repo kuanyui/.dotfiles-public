@@ -85,6 +85,13 @@ function emacsx() {
     ('emacs' $@ > /dev/null 2>&1 &)
 }
 
+function dotfiles-public-update () {
+    cd ~/.dotfiles/user/ &&
+    git reset --hard HEAD &&
+    git checkout master &&
+    git pull
+}
+
 ### ============================================
 ### autosuggesstions (apt install zsh-autosuggestions)
 ### ============================================
