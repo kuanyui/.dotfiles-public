@@ -91,6 +91,18 @@ function dotfiles-public-update () {
 	git reset --hard origin/master &&
 }
 
+function apt-install-without-recommends () {
+    apt install --no-install-recommends $@
+}
+
+function apt-install-without-recommends-diff-dry-run () {
+    if [ $UID -eq 0 ]; then
+	echo "Please run as non-root for GUI (meld)"
+	diff --width=$COLUMNS --suppress-common-lines --side-by-side --color <(apt-get install --dry-run $@) <(apt-get install --dry-run --no-install-recommends $@)
+    else
+	meld <(apt-get install --dry-run $@) <(apt-get install --dry-run --no-install-recommends $@)
+    fi
+}
 ### ============================================
 ### autosuggesstions (apt install zsh-autosuggestions)
 ### ============================================
