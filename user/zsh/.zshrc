@@ -92,7 +92,7 @@ function dotfiles-public-update () {
 }
 
 function apt-install-without-recommends () {
-    apt install --no-install-recommends $@
+    sudo apt install --no-install-recommends $@
 }
 
 function apt-install-without-recommends-diff-dry-run () {

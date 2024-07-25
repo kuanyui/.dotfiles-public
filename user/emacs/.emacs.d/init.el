@@ -90,11 +90,15 @@ the previous directory."
 ;; Backup files
 ;; ======================================================
 ;; https://www.emacswiki.org/emacs/BackupDirectory
-(defvar --backup-directory (concat user-emacs-directory "_backups"))
+(defvar --backup-directory (concat user-emacs-directory "_tmp/backups"))
+(defvar --undotree-directory (concat user-emacs-directory "_tmp/undotree"))
+
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
+(setq undo-tree-history-directory-alist
+      `((".*" . ,temporary-file-directory)))
 
 ;; ======================================================
 ;; apparmor
