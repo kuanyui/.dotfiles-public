@@ -86,7 +86,7 @@ function emacsx() {
 }
 
 function dotfiles-public-update () {
-    cd ~/.dotfiles/root/ &&
+    cd ~/.dotfiles-public/root/ &&
 	git fetch --all &&
 	git reset --hard origin/master &&
 }
